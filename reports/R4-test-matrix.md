@@ -2,7 +2,7 @@
 
 - 执行命令：`powershell -NoProfile -ExecutionPolicy Bypass -File .\tests\run-tests.ps1`
 - 结果：**52 passed / 0 failed**（全部在 `%TEMP%` 沙盒，普通用户权限）
-- 原始输出：`reports/test-report-v11-20261118-061848.txt`
+- 结果摘要：`examples/synthetic-test-summary.md`（通用摘要；原始日志含本机路径，仅保存在本地）
 - 依赖：无（不依赖 Pester、不联网、不改真实数据）
 
 ---

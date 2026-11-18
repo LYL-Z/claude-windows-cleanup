@@ -1,0 +1,26 @@
+# 允许进入公开仓库的路径白名单
+# 语法：PowerShell -like 通配符；`tools/Test-PublishSet.ps1` 会逐条核对。
+#
+# 原则：源码、配置、通用文档、测试、以及明确标注 SYNTHETIC 的示例可以公开；
+#       真实电脑的基线/检查/隐私/验证/计划/审批/隔离日志一律只在本地。
+
+.gitattributes
+.gitignore
+LICENSE
+README.md
+SECURITY.md
+CONTRIBUTING.md
+CHANGELOG.md
+SKILL.md
+publish-allowlist.txt
+
+config/*
+docs/*
+examples/*
+scripts/*
+tests/*
+tools/Test-PublishSet.ps1
+
+manifests/README.md
+reports/README.md
+reports/R4-test-matrix.md

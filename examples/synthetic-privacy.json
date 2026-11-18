@@ -1,0 +1,73 @@
+{
+  "_synthetic": true,
+  "_notice": "SYNTHETIC DATA — 示例输出，非真实电脑结果",
+  "schema_version": 1,
+  "skill": "claude-windows-cleanup",
+  "skill_version": "1.1.1",
+  "generated_at": "2026-01-01T00:00:00Z",
+  "host": "<EXAMPLE-HOST>",
+  "user": "<EXAMPLE-USER>",
+  "mode": "read_only_metadata",
+  "content_read": false,
+  "targets": [
+    {
+      "id": "claude_code_root",
+      "label": "Claude Code 全局目录",
+      "path": "C:\\Users\\<user>\\.claude",
+      "sensitivity": "HIGH",
+      "exists": true,
+      "status": "PRESENT",
+      "is_reparse": false,
+      "file_count": 120,
+      "bytes": 1048576,
+      "bytes_human": "1.00 MB",
+      "last_write_utc": "2026-01-01T00:00:00Z",
+      "sensitive_hits": ["C:\\Users\\<user>\\.claude\\settings.json"],
+      "truncated": false,
+      "content_read": false,
+      "note": "示例"
+    },
+    {
+      "id": "claude_code_credentials",
+      "label": "凭据文件（只判存在）",
+      "path": "C:\\Users\\<user>\\.claude\\.credentials.json",
+      "sensitivity": "CRITICAL",
+      "exists": false,
+      "status": "ABSENT",
+      "is_reparse": false,
+      "file_count": 0,
+      "bytes": 0,
+      "bytes_human": "0 B",
+      "last_write_utc": "",
+      "sensitive_hits": [],
+      "truncated": false,
+      "content_read": false,
+      "note": "示例：仅判断存在性"
+    }
+  ],
+  "running": [
+    { "name": "example-browser", "count": 1 }
+  ],
+  "extensions": [],
+  "findings": [
+    {
+      "id": "sensitive-files-claude_code_root",
+      "severity": "MEDIUM",
+      "statement": "示例：目标下存在敏感文件名（仅名称，未读取内容）",
+      "evidence": ["settings.json"]
+    }
+  ],
+  "guidance": [
+    "示例：在 claude.ai 账户菜单退出登录；是否清除站点数据由用户决定。"
+  ],
+  "summary": {
+    "targets": 2,
+    "present": 1,
+    "absent": 1,
+    "unknown": 0,
+    "blocked": 0,
+    "findings": 1
+  },
+  "verdict": "PASS",
+  "disclaimer": "示例数据；不证明任何账号状态，也不代表服务端记录。"
+}
