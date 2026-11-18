@@ -1,3 +1,19 @@
-quarantine/
+# 运行时产物：默认不入库
+# 真实电脑的基线/检查/隐私/验证/计划/日志属于私人运行数据，只保留在本地。
+manifests/*.json
 manifests/*.lock
+quarantine/
+reports/*.json
+reports/*.jsonl
+reports/plan-*.md
+reports/test-report-*.txt
+reports/baseline-*
+reports/inspection-*
+reports/privacy-*
+reports/verify-*
 *.tmp
+
+# 白名单：这些是公共资产，显式保留
+!reports/README.md
+!reports/R4-test-matrix.md
+!manifests/README.md

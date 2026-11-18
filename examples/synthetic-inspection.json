@@ -1,0 +1,75 @@
+{
+  "_synthetic": true,
+  "_notice": "SYNTHETIC DATA — 示例输出，非真实电脑结果",
+  "schema_version": 1,
+  "skill_name": "claude-windows-cleanup",
+  "generated_at": "2026-01-01T00:00:00Z",
+  "source": "synthetic",
+  "host": "<EXAMPLE-HOST>",
+  "user": "<EXAMPLE-USER>",
+  "is_admin": false,
+  "install_state": "UNINSTALLED_CONFIRMED",
+  "install_state_reason": "示例：无卸载注册项、无 MSIX、无进程/服务/任务，但存在产品目录。",
+  "install_signals": {
+    "uninstall_entries": [],
+    "appx": [],
+    "processes": [],
+    "services": [],
+    "tasks": [],
+    "probes": [
+      { "probe": "uninstall", "path": "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*", "ok": true }
+    ]
+  },
+  "items": [
+    {
+      "id": "cwc-0001",
+      "root_id": "logs-local",
+      "kind": "logs",
+      "fs_kind": "directory",
+      "path": "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+      "normalized_path": "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+      "status": "VERIFIED",
+      "status_reason": "示例：归属由规范根目录确定；已确认卸载；可读且无重解析点。",
+      "proposed_action": "QUARANTINE",
+      "risk": "LOW",
+      "bytes": 102400,
+      "file_count": 3,
+      "digest": "<synthetic>",
+      "last_write_utc": "2026-01-01T00:00:00Z",
+      "restorable": true,
+      "approval_required": true,
+      "selected": false
+    },
+    {
+      "id": "cwc-0002",
+      "root_id": "shortcuts-startmenu",
+      "kind": "shortcut_dir",
+      "fs_kind": "directory",
+      "path": "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+      "normalized_path": "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+      "status": "VERIFIED",
+      "status_reason": "示例：空目录。",
+      "proposed_action": "QUARANTINE",
+      "risk": "LOW",
+      "bytes": 0,
+      "file_count": 0,
+      "digest": "<synthetic>",
+      "last_write_utc": "2026-01-01T00:00:00Z",
+      "restorable": true,
+      "approval_required": true,
+      "selected": false
+    }
+  ],
+  "protected_observed": [
+    { "path": "C:\\Users\\<user>\\.claude", "reason": "Claude Code", "child_count": 6, "content_read": false }
+  ],
+  "summary": {
+    "total": 2,
+    "verified": 2,
+    "unknown": 0,
+    "blocked": 0,
+    "protected": 0,
+    "actionable": 2,
+    "total_bytes": 102400
+  }
+}

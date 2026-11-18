@@ -1,5 +1,25 @@
 # CHANGELOG
 
+## 1.1.1 — 2026-11-18（发布治理 / 隐私整改）
+
+无功能行为变更；只做公开仓库的发布规范化。
+
+### 变更
+
+- **移除**已公开的真实运行数据：`reports/baseline-*`、`inspection-*`、`privacy-*`、`verify-*`、
+  `plan-*.md`、`test-report-*`、`audit.jsonl`、`P4-acceptance.md`、`R2/R3/R5/R6` 验收报告。
+- **新增** `examples/synthetic-*`：全部人工构造并标注 `"_synthetic": true`，替代真实报告作为示例。
+- **新增** `tools/Test-PublishSet.ps1` + `publish-allowlist.txt`：提交前校验"不在白名单/含真实路径/含凭据特征"。
+- **收紧** `.gitignore`：运行产物默认不入库，白名单显式放行。
+- **新增** `LICENSE`（MIT 候选，待所有者确认）、`CONTRIBUTING.md`。
+- **重写** README 的状态分级：开发完成 / 自动化测试 / 独立复审 / 实机验收 / 已知限制分开表述，
+  移除"绝对安全""零风险"类不可证明措辞。
+- **新增** SECURITY 第 7 节：公开仓库数据卫生、Git 历史说明、依赖与供应链。
+
+### 已知问题
+
+- 初始提交 `8f78da2` 仍含旧的真实运行报告；清除需要重写历史或重建仓库，**等待所有者授权**。
+- PowerShell 7 兼容性仍未验证（维护者环境未安装）。
 ## 1.1.0 — 2026-11-18（第二轮独立复审）
 
 ### 新增

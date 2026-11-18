@@ -18,7 +18,8 @@
 因此：计划与日志只在本地存在，仓库里保留它们的**人读版**与**哈希值**：
 
 - `reports/plan-<id>.md` —— 计划摘要（逐项列出）
-- `reports/R5-plan.md` / `reports/R6-acceptance-v1.1.md` —— 计划 ID、`plan_sha256`、授权方式
+- 本地 `reports/` 下的验收记录（已被 `.gitignore` 排除）—— 计划 ID、`plan_sha256`、授权方式
+- `examples/synthetic-plan.md` —— 公开示例（占位哈希，不可校验）
 
 要复现同样的计划，在目标机器上重跑 `inspect.ps1` + `plan.ps1` 即可；内容不变时 `plan_sha256` 不变
 （本仓库记录的是 `8af7824cf4ef3634f26ce15ac9bbf2621c2483e6368ea2d0fc8ce6b454f9a1d3`）。

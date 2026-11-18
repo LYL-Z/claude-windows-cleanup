@@ -1,0 +1,46 @@
+{
+  "_synthetic": true,
+  "_notice": "SYNTHETIC DATA — 示例输出，非真实电脑结果",
+  "schema_version": 1,
+  "skill_name": "claude-windows-cleanup",
+  "generated_at": "2026-01-01T00:00:00Z",
+  "host": "<EXAMPLE-HOST>",
+  "user": "<EXAMPLE-USER>",
+  "os": {
+    "caption": "Windows 11 (synthetic)",
+    "version": "10.0.00000",
+    "build": "00000",
+    "arch": "AMD64"
+  },
+  "powershell": {
+    "version": "5.1.00000",
+    "edition": "Desktop"
+  },
+  "is_admin": false,
+  "skill": {
+    "root": "C:\\path\\to\\claude-windows-cleanup",
+    "fingerprint": "<synthetic>",
+    "config_sha": "<synthetic>",
+    "protection_sha": "<synthetic>"
+  },
+  "paths": {
+    "local_appdata": "C:\\Users\\<user>\\AppData\\Local",
+    "appdata": "C:\\Users\\<user>\\AppData\\Roaming",
+    "program_data": "C:\\ProgramData",
+    "user_profile": "C:\\Users\\<user>"
+  },
+  "quarantine": {
+    "configured": "C:\\Users\\<user>\\AppData\\Local\\ClaudeCleanup\\quarantine",
+    "volume": "C:\\",
+    "exists": false
+  },
+  "allowed_roots": [
+    { "id": "install-localappdata", "kind": "install_dir", "path": "C:\\Users\\<user>\\AppData\\Local\\AnthropicClaude", "exists": false },
+    { "id": "logs-local", "kind": "logs", "path": "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs", "exists": true },
+    { "id": "shortcuts-startmenu", "kind": "shortcut_dir", "path": "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic", "exists": true }
+  ],
+  "protected_roots": [
+    { "path": "C:\\Users\\<user>\\.claude", "reason": "Claude Code", "exists": true, "reparse": false },
+    { "path": "C:\\Users\\<user>\\AppData\\Roaming\\Claude", "reason": "Claude Desktop 用户数据", "exists": true, "reparse": false }
+  ]
+}
