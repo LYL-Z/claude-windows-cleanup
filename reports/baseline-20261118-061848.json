@@ -1,0 +1,423 @@
+{
+    "schema_version":  1,
+    "skill_name":  "claude-windows-cleanup",
+    "generated_at":  "2026-11-18T14:19:16Z",
+    "host": "<hostname>",
+    "user": "<user>",
+    "os":  {
+               "caption":  "Microsoft Windows 11 家庭版 中文版",
+               "version":  "10.0.26300.0",
+               "build":  "26300",
+               "arch":  "AMD64"
+           },
+    "powershell":  {
+                       "version":  "5.1.26100.9818",
+                       "edition":  "Desktop"
+                   },
+    "is_admin":  false,
+    "skill":  {
+                  "root":  "C:\\path\\to\\claude-windows-cleanup",
+                  "fingerprint":  "3a268d04036a2be6fc2ef2256431599a4fb819a7b4868fd572df1661dabbef51",
+                  "config_sha":  "0fccc5704871d7015b8dfdc608c178a74e4c763077e6a311dbf7a36f7c11dd15",
+                  "protection_sha":  "f471cba54855368e3f6a6b467ce21b2e774dcd2c99f233cc24db0963fa220ace"
+              },
+    "paths":  {
+                  "local_appdata":  "C:\\Users\\<user>\\AppData\\Local",
+                  "appdata":  "C:\\Users\\<user>\\AppData\\Roaming",
+                  "program_data":  "C:\\ProgramData",
+                  "user_profile":  "C:\\Users\\<user>"
+              },
+    "quarantine":  {
+                       "configured":  "C:\\Users\\<user>\\AppData\\Local\\ClaudeCleanup\\quarantine",
+                       "volume":  "C:\\",
+                       "exists":  false
+                   },
+    "allowed_roots":  [
+                          {
+                              "id":  "install-localappdata",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\AnthropicClaude",
+                              "exists":  false,
+                              "reparse":  false
+                          },
+                          {
+                              "id":  "install-localprograms",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Claude",
+                              "exists":  false,
+                              "reparse":  false
+                          },
+                          {
+                              "id":  "install-programfiles",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Program Files\\Claude",
+                              "exists":  false,
+                              "reparse":  false
+                          },
+                          {
+                              "id":  "logs-local",
+                              "kind":  "logs",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+                              "exists":  true,
+                              "reparse":  false
+                          },
+                          {
+                              "id":  "logs-programdata",
+                              "kind":  "logs",
+                              "path":  "C:\\ProgramData\\Claude\\Logs",
+                              "exists":  true,
+                              "reparse":  false
+                          },
+                          {
+                              "id":  "shortcuts-startmenu",
+                              "kind":  "shortcut_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+                              "exists":  true,
+                              "reparse":  false
+                          }
+                      ],
+    "protected_roots":  [
+                            {
+                                "path":  "C:\\WINDOWS",
+                                "reason":  "Windows 系统目录",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Program Files",
+                                "reason":  "其他软件安装目录（Claude 的 ProgramFiles 项由 scope.json 单独放行其子目录）",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Program Files (x86)",
+                                "reason":  "其他软件安装目录",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\ProgramData\\Microsoft",
+                                "reason":  "系统级共享配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Windows\\Explorer",
+                                "reason":  "资源管理器使用记录",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Google",
+                                "reason":  "Chrome 共享用户数据",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Edge",
+                                "reason":  "Edge 共享用户数据",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Mozilla",
+                                "reason":  "Firefox 共享用户数据",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Opera Software",
+                                "reason":  "Opera 用户数据",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Documents",
+                                "reason":  "个人文档",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Desktop",
+                                "reason":  "桌面文件",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Downloads",
+                                "reason":  "下载资料",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Pictures",
+                                "reason":  "个人照片",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Videos",
+                                "reason":  "个人视频",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Music",
+                                "reason":  "个人音乐",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.ssh",
+                                "reason":  "SSH 密钥",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.gitconfig",
+                                "reason":  "Git 全局配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.git-credentials",
+                                "reason":  "Git 凭据",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude",
+                                "reason":  "Claude Code 全部本地数据",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude.json",
+                                "reason":  "Claude Code 主配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\.credentials.json",
+                                "reason":  "Claude Code OAuth 凭据",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\projects",
+                                "reason":  "Claude Code 项目会话记录（可能含源代码）",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\memory",
+                                "reason":  "Claude Code 项目记忆",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\history.jsonl",
+                                "reason":  "提示词历史",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\file-history",
+                                "reason":  "文件修改快照",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\shell-snapshots",
+                                "reason":  "Shell 环境快照",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\plugins",
+                                "reason":  "Claude Code 插件",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\skills",
+                                "reason":  "Claude Code Skill",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\agents",
+                                "reason":  "Claude Code 自定义 Agent",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\commands",
+                                "reason":  "Claude Code 自定义命令",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\plans",
+                                "reason":  "规划模式任务计划",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\tasks",
+                                "reason":  "任务列表",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\sessions",
+                                "reason":  "会话状态",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\todos",
+                                "reason":  "待办状态",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\debug",
+                                "reason":  "调试日志",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\paste-cache",
+                                "reason":  "大段粘贴缓存",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\image-cache",
+                                "reason":  "图片缓存",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\uploads",
+                                "reason":  "附件",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\backups",
+                                "reason":  "配置备份",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\statsig",
+                                "reason":  "实验/统计缓存",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\usage-data",
+                                "reason":  "使用统计",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.claude\\feedback-bundles",
+                                "reason":  "反馈数据包",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Anthropic",
+                                "reason":  "Anthropic 应用配置",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Claude",
+                                "reason":  "Claude Desktop 用户数据（登录态/缓存/配置）",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Clash Verge",
+                                "reason":  "网络代理配置",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\DeepSeek Harness",
+                                "reason":  "DeepSeek Harness",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Cursor",
+                                "reason":  "Cursor",
+                                "exists":  false,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\WorkBuddy",
+                                "reason":  "WorkBuddy",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Trae CN",
+                                "reason":  "Trae",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Obsidian",
+                                "reason":  "Obsidian",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Docker",
+                                "reason":  "Docker 运行时",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\AppData\\Local\\Packages",
+                                "reason":  "UWP 应用数据",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.vscode",
+                                "reason":  "VS Code 配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.cursor",
+                                "reason":  "Cursor 配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.codex",
+                                "reason":  "Codex 配置",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\.workbuddy",
+                                "reason":  "WorkBuddy 数据",
+                                "exists":  true,
+                                "reparse":  false
+                            },
+                            {
+                                "path":  "C:\\Users\\<user>\\Obsidian",
+                                "reason":  "Obsidian 知识库",
+                                "exists":  false,
+                                "reparse":  false
+                            }
+                        ]
+}

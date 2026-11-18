@@ -1,0 +1,364 @@
+{
+    "schema_version":  1,
+    "skill":  "claude-windows-cleanup",
+    "skill_version":  "1.1.0",
+    "generated_at":  "2026-11-18T14:16:41Z",
+    "host": "<hostname>",
+    "user": "<user>",
+    "mode":  "read_only_metadata",
+    "content_read":  false,
+    "targets":  [
+                    {
+                        "id":  "claude_code_root",
+                        "label":  "Claude Code 全局目录",
+                        "path":  "C:\\Users\\<user>\\.claude",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  1314,
+                        "bytes":  30412484,
+                        "bytes_human":  "29.00 MB",
+                        "last_write_utc":  "2026-11-15T10:17:12Z",
+                        "sensitive_hits":  [
+                                               "C:\\Users\\<user>\\.claude\\history.jsonl",
+                                               "C:\\Users\\<user>\\.claude\\settings.json"
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "配置、会话、记忆、插件、Shell 快照"
+                    },
+                    {
+                        "id":  "claude_code_config",
+                        "label":  "Claude Code 主配置",
+                        "path":  "C:\\Users\\<user>\\.claude.json",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  1,
+                        "bytes":  7041,
+                        "bytes_human":  "6.9 KB",
+                        "last_write_utc":  "2026-11-09T12:26:26Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "账号信息、MCP 配置、项目状态"
+                    },
+                    {
+                        "id":  "claude_code_projects",
+                        "label":  "Claude Code 项目会话",
+                        "path":  "C:\\Users\\<user>\\.claude\\projects",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  35,
+                        "bytes":  14706918,
+                        "bytes_human":  "14.03 MB",
+                        "last_write_utc":  "2026-11-08T16:06:55Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "jsonl 会话记录，可能含代码与命令输出"
+                    },
+                    {
+                        "id":  "claude_code_credentials",
+                        "label":  "凭据文件（只判存在）",
+                        "path":  "C:\\Users\\<user>\\.claude\\.credentials.json",
+                        "sensitivity":  "CRITICAL",
+                        "exists":  false,
+                        "status":  "ABSENT",
+                        "is_reparse":  false,
+                        "file_count":  0,
+                        "bytes":  0,
+                        "bytes_human":  "0 B",
+                        "last_write_utc":  "",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "OAuth 凭据；只判断是否存在，绝不读取"
+                    },
+                    {
+                        "id":  "claude_code_backups",
+                        "label":  "Claude Code 配置备份",
+                        "path":  "C:\\Users\\<user>\\.claude\\backups",
+                        "sensitivity":  "MEDIUM",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  5,
+                        "bytes":  32926,
+                        "bytes_human":  "32.2 KB",
+                        "last_write_utc":  "2026-11-08T16:09:07Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "历史全局配置备份"
+                    },
+                    {
+                        "id":  "claude_code_appdata",
+                        "label":  "Anthropic 应用配置",
+                        "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Anthropic",
+                        "sensitivity":  "HIGH",
+                        "exists":  false,
+                        "status":  "ABSENT",
+                        "is_reparse":  false,
+                        "file_count":  0,
+                        "bytes":  0,
+                        "bytes_human":  "0 B",
+                        "last_write_utc":  "",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "部分认证方式使用"
+                    },
+                    {
+                        "id":  "claude_desktop_userdata",
+                        "label":  "Claude Desktop 用户数据",
+                        "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Claude",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  4607,
+                        "bytes":  477104814,
+                        "bytes_human":  "455.00 MB",
+                        "last_write_utc":  "2026-11-18T07:41:38Z",
+                        "sensitive_hits":  [
+                                               "C:\\Users\\<user>\\AppData\\Roaming\\Claude\\claude_desktop_config.json",
+                                               "C:\\Users\\<user>\\AppData\\Roaming\\Claude\\Local State"
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "登录态、缓存、MCP 配置"
+                    },
+                    {
+                        "id":  "claude_desktop_local",
+                        "label":  "Claude Desktop 本地数据",
+                        "path":  "C:\\Users\\<user>\\AppData\\Local\\Claude",
+                        "sensitivity":  "MEDIUM",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  8,
+                        "bytes":  381004,
+                        "bytes_human":  "372.1 KB",
+                        "last_write_utc":  "2026-11-15T11:58:52Z",
+                        "sensitive_hits":  [
+                                               "C:\\Users\\<user>\\AppData\\Local\\Claude\\claude_desktop_config.json"
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "日志与桌面端配置"
+                    },
+                    {
+                        "id":  "chrome_user_data",
+                        "label":  "Chrome 用户数据",
+                        "path":  "C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  17749,
+                        "bytes":  5672653126,
+                        "bytes_human":  "5.28 GB",
+                        "last_write_utc":  "2026-11-18T14:03:44Z",
+                        "sensitive_hits":  [
+                                               "C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data\\Local State"
+                                           ],
+                        "truncated":  true,
+                        "content_read":  false,
+                        "note":  "与所有网站共享的 Cookie/存储/历史"
+                    },
+                    {
+                        "id":  "chrome_extensions",
+                        "label":  "Chrome 扩展目录",
+                        "path":  "C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions",
+                        "sensitivity":  "MEDIUM",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  1794,
+                        "bytes":  62954553,
+                        "bytes_human":  "60.04 MB",
+                        "last_write_utc":  "2026-10-02T16:21:59Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "扩展清单未读取，是否含 Claude 扩展需人工确认"
+                    },
+                    {
+                        "id":  "edge_user_data",
+                        "label":  "Edge 用户数据",
+                        "path":  "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Edge\\User Data",
+                        "sensitivity":  "HIGH",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  10419,
+                        "bytes":  1141053077,
+                        "bytes_human":  "1.06 GB",
+                        "last_write_utc":  "2026-11-18T14:14:26Z",
+                        "sensitive_hits":  [
+                                               "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Edge\\User Data\\Local State"
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "同 Chrome"
+                    },
+                    {
+                        "id":  "vscode_extensions",
+                        "label":  "VS Code 扩展",
+                        "path":  "C:\\Users\\<user>\\.vscode\\extensions",
+                        "sensitivity":  "LOW",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  18186,
+                        "bytes":  1409456931,
+                        "bytes_human":  "1.31 GB",
+                        "last_write_utc":  "2026-11-01T15:58:46Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  false,
+                        "content_read":  false,
+                        "note":  "IDE 扩展与设置"
+                    },
+                    {
+                        "id":  "cursor_data",
+                        "label":  "Cursor 数据",
+                        "path":  "C:\\Users\\<user>\\.cursor",
+                        "sensitivity":  "MEDIUM",
+                        "exists":  true,
+                        "status":  "PRESENT",
+                        "is_reparse":  false,
+                        "file_count":  20001,
+                        "bytes":  253264493,
+                        "bytes_human":  "241.53 MB",
+                        "last_write_utc":  "2026-11-08T16:19:03Z",
+                        "sensitive_hits":  [
+
+                                           ],
+                        "truncated":  true,
+                        "content_read":  false,
+                        "note":  "开发工具配置"
+                    }
+                ],
+    "running":  [
+                    {
+                        "name":  "chrome",
+                        "count":  14
+                    },
+                    {
+                        "name":  "msedge",
+                        "count":  15
+                    },
+                    {
+                        "name":  "WorkBuddy",
+                        "count":  7
+                    }
+                ],
+    "extensions":  [
+                       {
+                           "path":  "C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions",
+                           "folder_count":  3,
+                           "identified":  false
+                       },
+                       {
+                           "path":  "C:\\Users\\<user>\\.vscode\\extensions",
+                           "folder_count":  23,
+                           "identified":  false
+                       }
+                   ],
+    "findings":  [
+                     {
+                         "id":  "sensitive-files-claude_code_root",
+                         "severity":  "MEDIUM",
+                         "statement":  "Claude Code 全局目录 下存在 2 个敏感文件名（仅名称，未读取内容）",
+                         "evidence":  [
+                                          "history.jsonl",
+                                          "settings.json"
+                                      ]
+                     },
+                     {
+                         "id":  "plaintext-session-records",
+                         "severity":  "HIGH",
+                         "statement":  "本地存在项目会话记录目录；官方文档说明其中可能含代码片段、命令输出与配置，属明文风险",
+                         "evidence":  [
+                                          "C:\\Users\\<user>\\.claude\\projects"
+                                      ]
+                     },
+                     {
+                         "id":  "sensitive-files-claude_desktop_userdata",
+                         "severity":  "MEDIUM",
+                         "statement":  "Claude Desktop 用户数据 下存在 2 个敏感文件名（仅名称，未读取内容）",
+                         "evidence":  [
+                                          "claude_desktop_config.json",
+                                          "Local State"
+                                      ]
+                     },
+                     {
+                         "id":  "sensitive-files-claude_desktop_local",
+                         "severity":  "MEDIUM",
+                         "statement":  "Claude Desktop 本地数据 下存在 1 个敏感文件名（仅名称，未读取内容）",
+                         "evidence":  [
+                                          "claude_desktop_config.json"
+                                      ]
+                     },
+                     {
+                         "id":  "sensitive-files-chrome_user_data",
+                         "severity":  "MEDIUM",
+                         "statement":  "Chrome 用户数据 下存在 1 个敏感文件名（仅名称，未读取内容）",
+                         "evidence":  [
+                                          "Local State"
+                                      ]
+                     },
+                     {
+                         "id":  "browser-shared-data",
+                         "severity":  "MEDIUM",
+                         "statement":  "Chrome 用户数据目录存在，内含与所有网站共享的 Cookie/本地存储；本 Skill 不读取、不清理",
+                         "evidence":  [
+                                          "C:\\Users\\<user>\\AppData\\Local\\Google\\Chrome\\User Data"
+                                      ]
+                     },
+                     {
+                         "id":  "sensitive-files-edge_user_data",
+                         "severity":  "MEDIUM",
+                         "statement":  "Edge 用户数据 下存在 1 个敏感文件名（仅名称，未读取内容）",
+                         "evidence":  [
+                                          "Local State"
+                                      ]
+                     }
+                 ],
+    "guidance":  [
+                     "浏览器：在 claude.ai 右上角账户菜单执行\"退出登录\"。是否进一步清除该站点数据由你决定（Chrome 设置 → 隐私和安全 → 网站设置 → 查看权限和数据）。",
+                     "Chrome 扩展：打开 chrome://extensions 查看是否存在 Claude 相关扩展；若不再使用，可在扩展页自行移除。本 Skill 不代为操作。",
+                     "Claude Code：使用官方登录/登出流程（CLI 的账户命令或交互式退出），本 Skill 不执行、不读取凭据文件。",
+                     "账号被封禁：本地文件的去留不改变服务端记录；数据导出/删除请走 Anthropic 官方渠道。",
+                     "本项目不做反检测、指纹伪造或账号关联规避，也不修改任何硬件/设备标识。"
+                 ],
+    "summary":  {
+                    "targets":  13,
+                    "present":  11,
+                    "absent":  2,
+                    "unknown":  0,
+                    "blocked":  0,
+                    "findings":  7
+                },
+    "verdict":  "PASS",
+    "disclaimer":  "本报告只描述本地元数据；不证明任何账号仍然有效或已失效，也不代表服务端记录。"
+}

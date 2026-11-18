@@ -1,0 +1,417 @@
+{
+    "schema_version":  1,
+    "skill_name":  "claude-windows-cleanup",
+    "generated_at":  "2026-11-18T14:19:19Z",
+    "source":  "live",
+    "evidence_path":  "",
+    "host": "<hostname>",
+    "user": "<user>",
+    "is_admin":  false,
+    "install_state":  "UNINSTALLED_CONFIRMED",
+    "install_state_reason":  "无卸载注册项、无 MSIX、无进程/服务/任务，但存在产品目录，判定为已卸载后的残留。",
+    "install_signals":  {
+                            "uninstall_entries":  [
+
+                                                  ],
+                            "appx":  [
+
+                                     ],
+                            "processes":  [
+
+                                          ],
+                            "services":  [
+
+                                         ],
+                            "tasks":  [
+
+                                      ],
+                            "probes":  [
+                                           {
+                                               "probe":  "uninstall",
+                                               "path":  "HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "uninstall",
+                                               "path":  "HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "uninstall",
+                                               "path":  "HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "uninstall",
+                                               "path":  "HKCU:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "appx",
+                                               "path":  "*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "process",
+                                               "path":  "*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "service",
+                                               "path":  "*",
+                                               "ok":  true
+                                           },
+                                           {
+                                               "probe":  "task",
+                                               "path":  "*",
+                                               "ok":  true
+                                           }
+                                       ]
+                        },
+    "allowed_roots":  [
+                          {
+                              "id":  "install-localappdata",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\AnthropicClaude",
+                              "exists":  false
+                          },
+                          {
+                              "id":  "install-localprograms",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Claude",
+                              "exists":  false
+                          },
+                          {
+                              "id":  "install-programfiles",
+                              "kind":  "install_dir",
+                              "path":  "C:\\Program Files\\Claude",
+                              "exists":  false
+                          },
+                          {
+                              "id":  "logs-local",
+                              "kind":  "logs",
+                              "path":  "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+                              "exists":  true
+                          },
+                          {
+                              "id":  "logs-programdata",
+                              "kind":  "logs",
+                              "path":  "C:\\ProgramData\\Claude\\Logs",
+                              "exists":  true
+                          },
+                          {
+                              "id":  "shortcuts-startmenu",
+                              "kind":  "shortcut_dir",
+                              "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+                              "exists":  true
+                          }
+                      ],
+    "items":  [
+                  {
+                      "id":  "cwc-0001",
+                      "root_id":  "logs-local",
+                      "kind":  "logs",
+                      "path":  "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+                      "normalized_path":  "C:\\Users\\<user>\\AppData\\Local\\Claude\\logs",
+                      "status":  "VERIFIED",
+                      "status_reason":  "产品归属由配置的规范根目录确定；已确认卸载；路径在允许范围内且可读。",
+                      "evidence":  [
+                                       "root:logs-local",
+                                       "kind:logs",
+                                       "install_state:UNINSTALLED_CONFIRMED"
+                                   ],
+                      "risk":  "LOW",
+                      "proposed_action":  "QUARANTINE",
+                      "restorable":  true,
+                      "approval_required":  true,
+                      "selected":  false,
+                      "bytes":  380976,
+                      "bytes_human":  "372.0 KB",
+                      "file_count":  6,
+                      "fs_kind":  "directory",
+                      "digest":  "b4bd167707073501fe226e711886b8cb7750234bb8bb51fe77f843ca658d6632",
+                      "last_write_utc":  "2026-11-15T12:01:52Z",
+                      "readable":  true,
+                      "is_reparse":  false,
+                      "exists":  true
+                  },
+                  {
+                      "id":  "cwc-0002",
+                      "root_id":  "logs-programdata",
+                      "kind":  "logs",
+                      "path":  "C:\\ProgramData\\Claude\\Logs",
+                      "normalized_path":  "C:\\ProgramData\\Claude\\Logs",
+                      "status":  "VERIFIED",
+                      "status_reason":  "产品归属由配置的规范根目录确定；已确认卸载；路径在允许范围内且可读。",
+                      "evidence":  [
+                                       "root:logs-programdata",
+                                       "kind:logs",
+                                       "install_state:UNINSTALLED_CONFIRMED"
+                                   ],
+                      "risk":  "LOW",
+                      "proposed_action":  "QUARANTINE",
+                      "restorable":  true,
+                      "approval_required":  true,
+                      "selected":  false,
+                      "bytes":  377218,
+                      "bytes_human":  "368.4 KB",
+                      "file_count":  1,
+                      "fs_kind":  "directory",
+                      "digest":  "9dbb22c1c07dd17567280430a9163d31604482ef57759be2a8cb56ab8e9104d0",
+                      "last_write_utc":  "2026-10-16T02:36:57Z",
+                      "readable":  true,
+                      "is_reparse":  false,
+                      "exists":  true
+                  },
+                  {
+                      "id":  "cwc-0003",
+                      "root_id":  "shortcuts-startmenu",
+                      "kind":  "shortcut_dir",
+                      "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+                      "normalized_path":  "C:\\Users\\<user>\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+                      "status":  "VERIFIED",
+                      "status_reason":  "产品归属由配置的规范根目录确定；已确认卸载；路径在允许范围内且可读。",
+                      "evidence":  [
+                                       "root:shortcuts-startmenu",
+                                       "kind:shortcut_dir",
+                                       "install_state:UNINSTALLED_CONFIRMED"
+                                   ],
+                      "risk":  "LOW",
+                      "proposed_action":  "QUARANTINE",
+                      "restorable":  true,
+                      "approval_required":  true,
+                      "selected":  false,
+                      "bytes":  0,
+                      "bytes_human":  "0 B",
+                      "file_count":  0,
+                      "fs_kind":  "directory",
+                      "digest":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                      "last_write_utc":  "2026-06-11T03:35:43Z",
+                      "readable":  true,
+                      "is_reparse":  false,
+                      "exists":  true
+                  }
+              ],
+    "protected_observed":  [
+                               {
+                                   "path":  "C:\\WINDOWS",
+                                   "reason":  "Windows 系统目录",
+                                   "child_count":  112,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Program Files",
+                                   "reason":  "其他软件安装目录（Claude 的 ProgramFiles 项由 scope.json 单独放行其子目录）",
+                                   "child_count":  47,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Program Files (x86)",
+                                   "reason":  "其他软件安装目录",
+                                   "child_count":  34,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\ProgramData\\Microsoft",
+                                   "reason":  "系统级共享配置",
+                                   "child_count":  34,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Windows\\Explorer",
+                                   "reason":  "资源管理器使用记录",
+                                   "child_count":  33,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Google",
+                                   "reason":  "Chrome 共享用户数据",
+                                   "child_count":  5,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Microsoft\\Edge",
+                                   "reason":  "Edge 共享用户数据",
+                                   "child_count":  1,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Documents",
+                                   "reason":  "个人文档",
+                                   "child_count":  31,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Desktop",
+                                   "reason":  "桌面文件",
+                                   "child_count":  19,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Downloads",
+                                   "reason":  "下载资料",
+                                   "child_count":  41,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Pictures",
+                                   "reason":  "个人照片",
+                                   "child_count":  5,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Videos",
+                                   "reason":  "个人视频",
+                                   "child_count":  5,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\Music",
+                                   "reason":  "个人音乐",
+                                   "child_count":  1,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.ssh",
+                                   "reason":  "SSH 密钥",
+                                   "child_count":  4,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.gitconfig",
+                                   "reason":  "Git 全局配置",
+                                   "child_count":  1,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude",
+                                   "reason":  "Claude Code 全部本地数据",
+                                   "child_count":  14,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude.json",
+                                   "reason":  "Claude Code 主配置",
+                                   "child_count":  1,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\projects",
+                                   "reason":  "Claude Code 项目会话记录（可能含源代码）",
+                                   "child_count":  4,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\history.jsonl",
+                                   "reason":  "提示词历史",
+                                   "child_count":  1,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\plugins",
+                                   "reason":  "Claude Code 插件",
+                                   "child_count":  6,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\skills",
+                                   "reason":  "Claude Code Skill",
+                                   "child_count":  16,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\sessions",
+                                   "reason":  "会话状态",
+                                   "child_count":  0,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.claude\\backups",
+                                   "reason":  "配置备份",
+                                   "child_count":  5,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Roaming\\Claude",
+                                   "reason":  "Claude Desktop 用户数据（登录态/缓存/配置）",
+                                   "child_count":  50,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\DeepSeek Harness",
+                                   "reason":  "DeepSeek Harness",
+                                   "child_count":  22,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\WorkBuddy",
+                                   "reason":  "WorkBuddy",
+                                   "child_count":  32,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Trae CN",
+                                   "reason":  "Trae",
+                                   "child_count":  44,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Programs\\Obsidian",
+                                   "reason":  "Obsidian",
+                                   "child_count":  23,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Docker",
+                                   "reason":  "Docker 运行时",
+                                   "child_count":  20,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\AppData\\Local\\Packages",
+                                   "reason":  "UWP 应用数据",
+                                   "child_count":  169,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.vscode",
+                                   "reason":  "VS Code 配置",
+                                   "child_count":  4,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.cursor",
+                                   "reason":  "Cursor 配置",
+                                   "child_count":  16,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.codex",
+                                   "reason":  "Codex 配置",
+                                   "child_count":  99,
+                                   "content_read":  false
+                               },
+                               {
+                                   "path":  "C:\\Users\\<user>\\.workbuddy",
+                                   "reason":  "WorkBuddy 数据",
+                                   "child_count":  96,
+                                   "content_read":  false
+                               }
+                           ],
+    "summary":  {
+                    "total":  3,
+                    "verified":  3,
+                    "unknown":  0,
+                    "blocked":  0,
+                    "protected":  0,
+                    "actionable":  3,
+                    "total_bytes":  758194
+                },
+    "limits":  {
+                   "max_items_per_run":  50,
+                   "max_total_bytes":  2147483648,
+                   "max_path_length":  240,
+                   "max_digest_entries":  50000,
+                   "max_digest_seconds":  120
+               }
+}

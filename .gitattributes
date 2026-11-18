@@ -1,0 +1,4 @@
+# 本仓库的内容被 SHA-256 绑定（Skill 指纹 / 计划哈希），因此禁止行尾转换。
+# 否则 Windows 上 core.autocrlf=true 的检出会把 LF 变 CRLF，导致 verify 的
+# skill_integrity 与计划绑定全部失效——不是代码坏了，是字节被改了。
+* -text

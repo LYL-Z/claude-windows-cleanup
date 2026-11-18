@@ -1,0 +1,314 @@
+﻿{
+    "skill":  "claude-windows-cleanup",
+    "schema_version":  2,
+    "skill_version":  "1.1.0",
+    "description":  "Claude 专项软件维护与隐私安全管理。默认拒绝：不在 allowed_item_roots 内的路径一律 BLOCKED；只隔离不删除；配置/源码/口令三重绑定。",
+    "product":  {
+                    "id":  "claude-desktop",
+                    "display_name":  "Claude",
+                    "publisher_allow":  [
+                                            "anthropic pbc",
+                                            "anthropic"
+                                        ],
+                    "display_name_allow":  [
+                                               "claude",
+                                               "claude desktop"
+                                           ],
+                    "appx_name_allow":  [
+                                            "claude",
+                                            "anthropicclaude",
+                                            "anthropic.claude"
+                                        ],
+                    "process_name_allow":  [
+                                               "claude"
+                                           ],
+                    "service_name_allow":  [
+                                               "claude"
+                                           ],
+                    "task_name_allow":  [
+                                            "claude"
+                                        ]
+                },
+    "allowed_item_roots":  [
+                               {
+                                   "id":  "install-localappdata",
+                                   "path":  "%LOCALAPPDATA%\\AnthropicClaude",
+                                   "kind":  "install_dir",
+                                   "max_entries":  50000,
+                                   "note":  "Squirrel 安装目录：app-x.y.z / Update.exe / claude.exe"
+                               },
+                               {
+                                   "id":  "install-localprograms",
+                                   "path":  "%LOCALAPPDATA%\\Programs\\Claude",
+                                   "kind":  "install_dir",
+                                   "max_entries":  50000,
+                                   "note":  "新版 per-user 安装目录"
+                               },
+                               {
+                                   "id":  "install-programfiles",
+                                   "path":  "%ProgramFiles%\\Claude",
+                                   "kind":  "install_dir",
+                                   "max_entries":  50000,
+                                   "note":  "机器级安装目录（若存在）"
+                               },
+                               {
+                                   "id":  "logs-local",
+                                   "path":  "%LOCALAPPDATA%\\Claude\\logs",
+                                   "kind":  "logs",
+                                   "max_entries":  5000,
+                                   "note":  "仅日志子目录；父目录中的配置一律不碰"
+                               },
+                               {
+                                   "id":  "logs-programdata",
+                                   "path":  "%ProgramData%\\Claude\\Logs",
+                                   "kind":  "logs",
+                                   "max_entries":  5000,
+                                   "note":  "机器级日志"
+                               },
+                               {
+                                   "id":  "shortcuts-startmenu",
+                                   "path":  "%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\Anthropic",
+                                   "kind":  "shortcut_dir",
+                                   "max_entries":  100,
+                                   "note":  "开始菜单快捷方式目录（卸载后常留空目录）"
+                               }
+                           ],
+    "protected_paths":  [
+                            {
+                                "path":  "%APPDATA%\\Claude",
+                                "reason":  "Electron 用户数据：含登录态/缓存/MCP 配置，属于用户数据而非安装残留"
+                            },
+                            {
+                                "path":  "%LOCALAPPDATA%\\Claude",
+                                "reason":  "用户数据根：只允许其 logs 子目录进入范围"
+                            },
+                            {
+                                "path":  "%LOCALAPPDATA%\\Claude\\claude_desktop_config.json",
+                                "reason":  "MCP 配置，可能含环境变量凭据"
+                            },
+                            {
+                                "path":  "%USERPROFILE%\\.claude",
+                                "reason":  "Claude Code 配置与会话，属于另一个 AI 工具"
+                            },
+                            {
+                                "path":  "%USERPROFILE%\\.claude.json",
+                                "reason":  "Claude Code 主配置"
+                            },
+                            {
+                                "path":  "%APPDATA%\\Anthropic",
+                                "reason":  "Anthropic 应用级配置"
+                            }
+                        ],
+    "protected_name_patterns":  [
+                                    {
+                                        "pattern":  "*obsidian*",
+                                        "reason":  "Obsidian 知识库"
+                                    },
+                                    {
+                                        "pattern":  "*小说*",
+                                        "reason":  "小说创作资料"
+                                    },
+                                    {
+                                        "pattern":  "*armorbreak*",
+                                        "reason":  "ArmorBreak 项目"
+                                    },
+                                    {
+                                        "pattern":  "*deepseek*",
+                                        "reason":  "DeepSeek Harness 及其数据"
+                                    },
+                                    {
+                                        "pattern":  "*cursor*",
+                                        "reason":  "Cursor 开发工具"
+                                    },
+                                    {
+                                        "pattern":  "*codex*",
+                                        "reason":  "Codex 开发工具"
+                                    },
+                                    {
+                                        "pattern":  "*workbuddy*",
+                                        "reason":  "WorkBuddy"
+                                    },
+                                    {
+                                        "pattern":  "*trae*",
+                                        "reason":  "Trae 开发工具"
+                                    },
+                                    {
+                                        "pattern":  "*.ssh",
+                                        "reason":  "SSH 密钥目录"
+                                    },
+                                    {
+                                        "pattern":  ".git",
+                                        "reason":  "Git 仓库元数据"
+                                    },
+                                    {
+                                        "pattern":  "*credential*",
+                                        "reason":  "凭据存储"
+                                    },
+                                    {
+                                        "pattern":  "*password*",
+                                        "reason":  "口令文件"
+                                    },
+                                    {
+                                        "pattern":  "claude.md",
+                                        "reason":  "项目级 Claude 指令资产"
+                                    },
+                                    {
+                                        "pattern":  ".mcp.json",
+                                        "reason":  "项目级 MCP 配置"
+                                    }
+                                ],
+    "quarantine_root":  "%LOCALAPPDATA%\\ClaudeCleanup\\quarantine",
+    "limits":  {
+                   "max_items_per_run":  50,
+                   "max_total_bytes":  2147483648,
+                   "max_path_length":  240,
+                   "max_digest_entries":  50000,
+                   "max_digest_seconds":  120
+               },
+    "execution":  {
+                      "require_admin":  false,
+                      "allow_permanent_delete":  false,
+                      "allow_acl_change":  false,
+                      "allow_takeown":  false,
+                      "allow_network":  false,
+                      "allow_service_change":  false,
+                      "allow_registry_write":  false,
+                      "allow_environment_write":  false,
+                      "require_approval_file":  true,
+                      "require_confirmation_nonce":  true,
+                      "require_config_binding":  true,
+                      "require_single_instance":  true,
+                      "require_dry_run_first":  true,
+                      "require_same_volume_for_quarantine":  true
+                  },
+    "privacy_audit":  {
+                          "description":  "只读元数据评估的检查目标；不读取内容，不输出凭据。",
+                          "targets":  [
+                                          {
+                                              "id":  "claude_code_root",
+                                              "label":  "Claude Code 全局目录",
+                                              "path":  "%USERPROFILE%\\.claude",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "配置、会话、记忆、插件、Shell 快照"
+                                          },
+                                          {
+                                              "id":  "claude_code_config",
+                                              "label":  "Claude Code 主配置",
+                                              "path":  "%USERPROFILE%\\.claude.json",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "账号信息、MCP 配置、项目状态"
+                                          },
+                                          {
+                                              "id":  "claude_code_projects",
+                                              "label":  "Claude Code 项目会话",
+                                              "path":  "%USERPROFILE%\\.claude\\projects",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "jsonl 会话记录，可能含代码与命令输出"
+                                          },
+                                          {
+                                              "id":  "claude_code_credentials",
+                                              "label":  "凭据文件（只判存在）",
+                                              "path":  "%USERPROFILE%\\.claude\\.credentials.json",
+                                              "sensitivity":  "CRITICAL",
+                                              "note":  "OAuth 凭据；只判断是否存在，绝不读取"
+                                          },
+                                          {
+                                              "id":  "claude_code_backups",
+                                              "label":  "Claude Code 配置备份",
+                                              "path":  "%USERPROFILE%\\.claude\\backups",
+                                              "sensitivity":  "MEDIUM",
+                                              "note":  "历史全局配置备份"
+                                          },
+                                          {
+                                              "id":  "claude_code_appdata",
+                                              "label":  "Anthropic 应用配置",
+                                              "path":  "%APPDATA%\\Anthropic",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "部分认证方式使用"
+                                          },
+                                          {
+                                              "id":  "claude_desktop_userdata",
+                                              "label":  "Claude Desktop 用户数据",
+                                              "path":  "%APPDATA%\\Claude",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "登录态、缓存、MCP 配置"
+                                          },
+                                          {
+                                              "id":  "claude_desktop_local",
+                                              "label":  "Claude Desktop 本地数据",
+                                              "path":  "%LOCALAPPDATA%\\Claude",
+                                              "sensitivity":  "MEDIUM",
+                                              "note":  "日志与桌面端配置"
+                                          },
+                                          {
+                                              "id":  "chrome_user_data",
+                                              "label":  "Chrome 用户数据",
+                                              "path":  "%LOCALAPPDATA%\\Google\\Chrome\\User Data",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "与所有网站共享的 Cookie/存储/历史"
+                                          },
+                                          {
+                                              "id":  "chrome_extensions",
+                                              "label":  "Chrome 扩展目录",
+                                              "path":  "%LOCALAPPDATA%\\Google\\Chrome\\User Data\\Default\\Extensions",
+                                              "sensitivity":  "MEDIUM",
+                                              "note":  "扩展清单未读取，是否含 Claude 扩展需人工确认"
+                                          },
+                                          {
+                                              "id":  "edge_user_data",
+                                              "label":  "Edge 用户数据",
+                                              "path":  "%LOCALAPPDATA%\\Microsoft\\Edge\\User Data",
+                                              "sensitivity":  "HIGH",
+                                              "note":  "同 Chrome"
+                                          },
+                                          {
+                                              "id":  "vscode_extensions",
+                                              "label":  "VS Code 扩展",
+                                              "path":  "%USERPROFILE%\\.vscode\\extensions",
+                                              "sensitivity":  "LOW",
+                                              "note":  "IDE 扩展与设置"
+                                          },
+                                          {
+                                              "id":  "cursor_data",
+                                              "label":  "Cursor 数据",
+                                              "path":  "%USERPROFILE%\\.cursor",
+                                              "sensitivity":  "MEDIUM",
+                                              "note":  "开发工具配置"
+                                          }
+                                      ],
+                          "sensitive_names_by_target":  {
+                                                            "claude_code":  [
+                                                                                ".credentials.json",
+                                                                                "history.jsonl",
+                                                                                "settings.json",
+                                                                                "settings.local.json",
+                                                                                "claude.md",
+                                                                                ".mcp.json"
+                                                                            ],
+                                                            "claude_desktop":  [
+                                                                                   "claude_desktop_config.json",
+                                                                                   "local state",
+                                                                                   "network"
+                                                                               ],
+                                                            "chrome":  [
+                                                                           "cookies",
+                                                                           "login data",
+                                                                           "local state",
+                                                                           "web data",
+                                                                           "bookmarks",
+                                                                           "history"
+                                                                       ],
+                                                            "edge":  [
+                                                                         "cookies",
+                                                                         "login data",
+                                                                         "local state",
+                                                                         "web data",
+                                                                         "bookmarks",
+                                                                         "history"
+                                                                     ],
+                                                            "default":  [
+
+                                                                        ]
+                                                        }
+                      }
+}
